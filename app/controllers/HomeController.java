@@ -1,7 +1,7 @@
 package controllers;
 
 import play.mvc.*;
-
+import java.util.*;
 
 
 /**
@@ -49,5 +49,21 @@ public class HomeController extends Controller {
     public Result greet(){
         String name = "Milica";
         return ok(views.html.greet.render(name));
+    }
+
+    public Result users(){
+        List<String> users = Arrays.asList("Milica", "Nikola", "Jovan", "Sara");
+        StringBuilder html = new StringBuilder("<html><body>");
+        html.append("<h1>Users</h1>");
+        html.append("<ul>");
+
+        for(String user : users){
+            html.append("<li>").append(user).append("</li>");
+        }
+
+        html.append("</ul>");
+        html.append("</body></html>");
+
+        return ok(html.toString()).as("text/html");
     }
 }

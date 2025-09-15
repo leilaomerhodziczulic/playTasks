@@ -19,3 +19,5 @@ GET     /bye                        controllers.HomeController.bye()
 GET     /members                    controllers.HomeController.members()
 
 GET     /greet                      controllers.HomeController.greet()
+
+GET     /users                      controllers.HomeController.users()
