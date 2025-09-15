@@ -2,6 +2,7 @@ package controllers;
 
 import play.mvc.*;
 import java.util.*;
+import models.User;
 
 
 /**
@@ -65,5 +66,15 @@ public class HomeController extends Controller {
         html.append("</body></html>");
 
         return ok(html.toString()).as("text/html");
+    }
+
+    public Result team() {
+        List<User> users = new ArrayList<>();
+        users.add(new User("Milica", "admin"));
+        users.add(new User("Nikola", "member"));
+        users.add(new User("Jovan", "member"));
+        users.add(new User("Sara", "admin"));
+
+        return ok(views.html.team.render(users));
     }
 }

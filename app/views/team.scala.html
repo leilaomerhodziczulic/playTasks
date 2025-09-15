@@ -1,0 +1,26 @@
+@import models.User
+@(users: List[User])
+
+
+@main("Team") {
+<h1>Tim</h1>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+    </tr>
+    @for(user <- users) {
+    <tr>
+        <td>@user.name</td>
+        <td>
+            @if(user.role == "admin") {
+            ADMIN (specijalne privilegije)
+            } else {
+            @user.role
+            }
+        </td>
+    </tr>
+    }
+</table>
+}
+
