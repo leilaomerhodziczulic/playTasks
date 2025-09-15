@@ -45,4 +45,9 @@ public class HomeController extends Controller {
 
         return ok(html.toString()).as("text/html");
     }
+
+    public Result greet(){
+        String name = "Milica";
+        return ok(views.html.greet.render(name));
+    }
 }
