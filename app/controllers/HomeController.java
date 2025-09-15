@@ -3,6 +3,7 @@ package controllers;
 import play.mvc.*;
 
 
+
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
@@ -28,5 +29,20 @@ public class HomeController extends Controller {
 
     public Result bye() {return ok(views.html.bye.render());}
 
+    private static final String[] members = {"Ana", "Boris", "Jelena", "Marko"};
 
+    public Result members(){
+        StringBuilder html = new StringBuilder("<html><body>");
+        html.append("<h1>Team Members</h1>");
+        html.append("<ul>");
+
+        for(String member : members){
+            html.append("<li>").append(member).append("</li>");
+        }
+
+        html.append("</ul>");
+        html.append("</body></html>");
+
+        return ok(html.toString()).as("text/html");
+    }
 }

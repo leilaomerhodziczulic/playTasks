@@ -16,3 +16,4 @@ GET     /status                     controllers.HomeController.status()
 
 GET     /bye                        controllers.HomeController.bye()
 
+GET     /members                    controllers.HomeController.members()
